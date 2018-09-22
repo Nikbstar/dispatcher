@@ -30,27 +30,27 @@ public class PrintQueue {
 
     public void print(final Printer printer) throws InterruptedException {
         waitPrinting();
-            if (!documents.isEmpty()) {
-                this.printing = true;
-                this.executor.execute(new Runnable() {
-                    public void run() {
-                        synchronized (lock) {
-                            Document printingDocument = documents.poll();
-                            try {
-                                printer.print(printingDocument);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            } finally {
-                                printedDocuments.add(printingDocument);
-                                printing = false;
-                                lock.notifyAll();
-                            }
+        if (!documents.isEmpty()) {
+            this.printing = true;
+            this.executor.execute(new Runnable() {
+                public void run() {
+                    synchronized (lock) {
+                        Document printingDocument = documents.poll();
+                        try {
+                            printer.print(printingDocument);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } finally {
+                            printedDocuments.add(printingDocument);
+                            printing = false;
+                            lock.notifyAll();
                         }
                     }
-                });
-            } else {
-                this.printing = false;
-            }
+                }
+            });
+        } else {
+            this.printing = false;
+        }
     }
 
     public List<Document> stop() {

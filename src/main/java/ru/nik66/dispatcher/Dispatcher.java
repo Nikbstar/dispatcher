@@ -19,8 +19,12 @@ public class Dispatcher {
         this.printQueue.add(document);
     }
 
-    public void print() throws InterruptedException {
-        this.printQueue.print(this.printer);
+    public void print() {
+        try {
+            this.printQueue.print(this.printer);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean cancelPrintDocument(Document document) {
