@@ -72,7 +72,7 @@ public class DispatcherTest {
         this.dispatcher.putDocument(bigPdf);
         this.dispatcher.putDocument(jpeg);
         Thread.sleep(500);
-        this.dispatcher.cancelPrintDocument(bigPdf);
+        assertThat(this.dispatcher.cancelPrintDocument(bigPdf), is(true));
         Thread.sleep(1700);
         this.dispatcher.stopPrinting();
         List<String> actual = this.printer.getPrints();

@@ -1,19 +1,33 @@
 package ru.nik66.dispatcher.documents;
 
+/**
+ * Список типов документов.
+ */
 public enum DocumentType {
 
     PDF("PDF document"),
     PIC("Picture"),
     TXT("Text document");
 
-    private String name;
+    /**
+     * Описание типа документа.
+     */
+    private String description;
 
-    DocumentType(String name) {
-        this.name = name;
+    /**
+     * Конструктор, принимающий описание типа документа.
+     * @param description описание типа документа.
+     */
+    DocumentType(String description) {
+        this.description = description;
     }
 
-    public String getName() {
-        return name;
+    /**
+     * Геттер для описания типа документа.
+     * @return описание типа документа.
+     */
+    public String getDescription() {
+        return this.description;
     }
 
 }
