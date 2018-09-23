@@ -7,6 +7,11 @@
     <groupId>ru.nik66</groupId>
     <artifactId>dispatcher</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <jdk.version>1.7</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.hamcrest</groupId>
