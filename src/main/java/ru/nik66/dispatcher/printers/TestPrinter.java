@@ -13,7 +13,7 @@ public class TestPrinter implements Printer {
     /**
      * Лист напечатанного на данном принтере.
      */
-    private static List<String> prints = new ArrayList<>();
+    private List<String> prints = new ArrayList<>();
 
     /**
      * Печать документа.
